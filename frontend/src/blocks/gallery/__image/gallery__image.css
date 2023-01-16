@@ -1,0 +1,12 @@
+.gallery__image {
+  object-fit: cover;
+  height: 282px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.gallery__image:hover {
+  cursor: pointer;
+}

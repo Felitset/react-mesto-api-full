@@ -1,0 +1,18 @@
+.gallery__delete-item {
+  background-image: url(../../../images/Trash-pictogram.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border-style: none;
+  z-index: 100;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 18px;
+  height: 19px;
+  transition: 0.5s;
+}
+
+.gallery__delete-item:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

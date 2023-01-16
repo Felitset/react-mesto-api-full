@@ -1,0 +1,12 @@
+.header__logo {
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 631px) {
+  .header__logo {
+    width: 104px;
+    height: 25px;
+    padding: 28px 190px 32px 27px;
+  }
+}

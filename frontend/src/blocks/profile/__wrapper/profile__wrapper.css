@@ -1,0 +1,14 @@
+.profile__wrapper { 
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.profile__wrapper:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0);
+    background-image: url(../../../images/avatar_edit_pictogram.png);
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: 26px 26px;
+}

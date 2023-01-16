@@ -1,0 +1,7 @@
+.popup__transparent-container {
+  border-radius: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  position: relative;
+  background: transparent;
+  margin: 0 auto;
+}

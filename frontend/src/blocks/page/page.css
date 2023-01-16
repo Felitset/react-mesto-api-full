@@ -1,0 +1,20 @@
+.page {
+  min-width: 320px;
+  width: 100vw;
+  background-color: #000000;
+  padding: 45px 0 60px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+@media screen and (max-width: 1150px) {
+  .page {
+    padding: 45px 50px 60px;
+  }
+}
+
+@media screen and (max-width: 631px) {
+  .page {
+    padding: 0;
+  }
+}
