@@ -1,4 +1,4 @@
-const apiAuthHost = 'https://auth.nomoreparties.co';
+const apiAuthHost = 'https://api.felitset-1991.nomoredomains.rocks';
 
 export const signUpUser = async (email, password) => {
     const res = await fetch(`${apiAuthHost}/signup`, {
