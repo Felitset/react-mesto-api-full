@@ -1,4 +1,4 @@
-const apiAuthHost = 'https://api.felitset-1991.nomoredomains.rocks';
+const { apiAuthHost } = require('./api_config.js');
 
 export const signUpUser = async (email, password) => {
     const res = await fetch(`${apiAuthHost}/signup`, {

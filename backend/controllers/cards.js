@@ -11,14 +11,11 @@ const getAllCards = (req, res, next) => Card
   })
   .catch(next);
 
-const postCard = (req, res, next) => {
+const postCard = async (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
-  return Card
-    .create({ name, link, owner })
-    .then((card) => {
-      res.json(card);
-    })
+  const card = await Card
+    .create({ name, link, owner }); 
     .catch((err) => {
       if (err.name === 'ValidatonError') {
         next(new BadRequestError('Error DB validation'));
@@ -26,7 +23,20 @@ const postCard = (req, res, next) => {
         next(err);
       }
     });
-};
+  return Card.findById(card._id).populate('owner') 
+    .then((newcard) => { 
+      res.json(newcard); 
+    }) 
+    .catch(next);
+}; 
+//   return Card
+//     .create({ name, link, owner }).populate('owner').populate('likes')
+//     .then((card) => {
+//       res.json(card);
+//     })
+    
+  
+// };
 
 const deleteCard = (req, res, next) => {
   const { cardId } = req.params;

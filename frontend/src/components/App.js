@@ -17,7 +17,7 @@ import ProtectedRoute from './ProtectedRoute';
 import InfoTooltip from './InfoTooltip';
 import successImage from '../images/success.png';
 import failImage from '../images/fail.png';
-import * as apiAuth from '../utils/ApiAuth';
+import * as apiAuthHost from '../utils/ApiAuth';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -43,9 +43,9 @@ function App() {
         throw new Error('No token in storage');
       }
       else {
-        apiAuth.getUserContent(jwt).then((data) => {
+        apiAuthHost.getUserContent(jwt).then((data) => {
           setLoggedIn(true);
-          setUserEmail(data.data.email)
+          setUserEmail(data.email)
         })
 
       }
@@ -54,7 +54,7 @@ function App() {
 
   const authenticateUser = useCallback(async (email, password) => {
     try {
-      const { token } = await apiAuth.signInUser(email, password);
+      const { token } = await apiAuthHost.signInUser(email, password);
       if (!token) {
         throw new Error('No token');
       }
@@ -71,7 +71,7 @@ function App() {
 
   const registerUser = useCallback(async (email, password) => {
     try {
-      const data = await apiAuth.signUpUser(email, password);
+      const data = await apiAuthHost.signUpUser(email, password);
       if (!data) {
         setIsFailModalOpen(true);
         throw new Error('No data');
