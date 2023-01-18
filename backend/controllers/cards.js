@@ -15,7 +15,7 @@ const postCard = async (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
   const card = await Card
-    .create({ name, link, owner }); 
+    .create({ name, link, owner })
     .catch((err) => {
       if (err.name === 'ValidatonError') {
         next(new BadRequestError('Error DB validation'));
