@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-require('dotenv').config();
-console.log(process.env.NODE_ENV);
+// require('dotenv').config();
+// console.log(process.env.NODE_ENV);
 
 const { celebrate, Joi, errors } = require('celebrate');
 const { login, createUser } = require('./controllers/users');
