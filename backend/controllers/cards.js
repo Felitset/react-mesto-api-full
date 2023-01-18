@@ -28,15 +28,7 @@ const postCard = async (req, res, next) => {
       res.json(newcard); 
     }) 
     .catch(next);
-}; 
-//   return Card
-//     .create({ name, link, owner }).populate('owner').populate('likes')
-//     .then((card) => {
-//       res.json(card);
-//     })
-    
-  
-// };
+};
 
 const deleteCard = (req, res, next) => {
   const { cardId } = req.params;
@@ -70,7 +62,7 @@ const setLike = (req, res, next) => {
       cardId,
       { $addToSet: { likes: req.user._id } },
       { new: true },
-    )
+    ).populate('owner').populate('likes')
     .then((card) => {
       if (!card) {
         throw new NotFoundError('Карточка не найдена');
@@ -94,7 +86,7 @@ const removeLike = (req, res, next) => {
       cardId,
       { $pull: { likes: req.user._id } },
       { new: true },
-    )
+    ).populate('owner').populate('likes')
     .then((card) => {
       if (!card) {
         throw new NotFoundError('Карточка не найдена');
